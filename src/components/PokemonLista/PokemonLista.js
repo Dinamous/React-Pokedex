@@ -3,6 +3,8 @@ import PokemonCard from '../PokemonCard/PokemonCard'
 
 import Row from 'react-bootstrap/Row';
 import api from '../../source/api';
+
+import loading from '../../25 (1).gif'
 export default class PokemonLista extends Component {
 
     state = {
@@ -11,7 +13,7 @@ export default class PokemonLista extends Component {
     }
 
     async componentDidMount(){
-        const response = await api.get('?limit=151');
+        const response = await api.get('pokemon/?limit=151');
         this.setState({pokemon: response.data['results']});
     }
 
@@ -29,7 +31,13 @@ export default class PokemonLista extends Component {
                         />
                     ))}
                 </Row>)
-            : (<h1>Carregando...</h1>)}
+            : (
+                <Row className="justify-content-sm-center">
+                    <img src={loading} alt="" style={{minWidth:'8rem', margin:'5rem'}}/>
+                </Row>
+                
+
+            )}
         </div>
         )
     }

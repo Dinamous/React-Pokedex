@@ -6,8 +6,8 @@
     -ms-border-radius: 1rem;
     -o-border-radius: 1rem;
     color: black;
-    margin: 0 .5rem;
-    opacity: .5;
+    margin: .25rem .5rem;
+    opacity: .6;
     font-weight: 500;
 }
 
@@ -69,4 +69,21 @@
 
 .normal {
 	background-color: #F5F5F5;
+}
+
+.ghost{
+    background-color: #c44dcf;
+}
+
+.dark{
+    background-color: #797979;
+}
+
+.unknown{
+    background-color: #e67070
+}
+
+.shadow{
+    background-color: #000000;
+    color: white;
 }

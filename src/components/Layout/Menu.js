@@ -11,8 +11,18 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 
 import '../../App.css'
+import api from '../../source/api';
 
 export default class Menu extends Component {
+    state = {
+        tipos:null
+    }
+
+    async componentDidMount(){
+        const response = await api.get('type');
+        this.setState({tipos: response.data['results']});
+        console.log(this.state.tipos)
+    }
     render() {
         return (
            
@@ -23,16 +33,25 @@ export default class Menu extends Component {
         <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
             <Nav.Link href="#features">RA</Nav.Link>
+            <Nav.Link href="#features">3D</Nav.Link>
             <NavDropdown title="Filtrar por Categoria" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Lutador</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Planta</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Venenoso</NavDropdown.Item>
-                
+               
+                 {this.state.tipos ? (
+                    this.state.tipos.map(tipo => (
+                        <NavDropdown.Item 
+                        href={`tipo/${tipo.name}`}>
+                            {tipo.name
+                            .toLowerCase()
+                            .split(' ')
+                            .map(s => s.charAt(0).toUpperCase() + s.substring(1))
+                            .join(' ')}</NavDropdown.Item>
+                    )) 
+                 ) : (<p>Carregando</p>)}
             </NavDropdown>
         </Nav>
         <Form inline>
-            <FormControl type="text" placeholder="Procurar Pókemon" className="mr-sm-2" />
-            <Button variant="outline-success">Buscar</Button>
+            <FormControl type="text"  placeholder="Procurar Pókemon" className="mr-sm-2" />
+            <Button variant="outline-success" style={{margin:' .5rem 0 '}}>Buscar</Button>
         </Form>
         </Navbar.Collapse>
         </Navbar>

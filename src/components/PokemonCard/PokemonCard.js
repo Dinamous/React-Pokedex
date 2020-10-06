@@ -12,7 +12,9 @@ export default class PokemonCard extends Component {
         name:'',
         imageURL:'',
         pokemonIndex:'',
-        pokemonData:null
+        pokemonData:null,
+        imagemCarregando:true,
+        muitasRequisicoes:false,
     }
 
     async componentDidMount() {
@@ -21,7 +23,7 @@ export default class PokemonCard extends Component {
         const pokemonIndex = url.split('/')[url.split('/').length - 2];
         const imageURL = `https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${pokemonIndex}.png?raw=true`;
         
-        const response = await api.get(`/${pokemonIndex}`);
+        const response = await api.get(`pokemon/${pokemonIndex}`);
         this.setState({pokemonData: response.data});
       
         this.setState({ name, imageURL, pokemonIndex});
@@ -32,18 +34,28 @@ export default class PokemonCard extends Component {
     render() {       
 
         return (
-            <div>
-                <Card  bg="dark" variant="dark" className="text-center cartao"
+            <div className="card-button">
+                <Card  id="card"bg="dark" variant="dark" className="text-center cartao"
                 style={{width:'18rem',margin: '1rem',borderRadius:'1rem'}}>
                     
-                    <div className="corfundo">
+                    <div className="corfundo" >
                     <h5 className="pokemonIndex">#{this.state.pokemonIndex}</h5>
-                    <Card.Img variant="top" src={this.state.imageURL} style={{maxWidth:'10rem',marginLeft:'25%'}}/>
+                
+                    <div style={{display:'flex', alignItems:'center'}}>
+                        <Card.Img id="imagem-card"
+                        variant="top" 
+                        src={this.state.imageURL} 
+                        style={{maxWidth:'10rem',marginLeft:'25%'}}
+                        onload={()=> {this.setState({imagemCarregando:false})}}
+                        onError={()=> {this.setState({muitasRequisicoes:true})}}
+                        />
+                    </div>
+                    
                     </div>
                 
                 <Card.Body>
                     
-                    <Card.Title>{
+                    <Card.Title id="card-title">{
                         this.state.name
                         .toLowerCase()
                         .split(' ')
@@ -61,7 +73,7 @@ export default class PokemonCard extends Component {
                                 
                             ))}
                             </Row>
-                        ) : (<h6>Carregando...</h6>)}
+                        ) : (<div><p>Carregando</p></div>)}
                     
                     </Card.Text>
                     
