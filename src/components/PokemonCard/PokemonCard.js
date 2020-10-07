@@ -3,8 +3,11 @@ import React, { Component } from 'react'
 
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
+import { Link } from 'react-router-dom';
 import api from '../../source/api';
 import Categoria from '../Categoria/Categoria';
+
+
 import './styles.css'
 export default class PokemonCard extends Component {
 
@@ -15,6 +18,7 @@ export default class PokemonCard extends Component {
         pokemonData:null,
         imagemCarregando:true,
         muitasRequisicoes:false,
+        filtroCategoria:'',
     }
 
     async componentDidMount() {
@@ -34,12 +38,15 @@ export default class PokemonCard extends Component {
     render() {       
 
         return (
+            
             <div className="card-button">
+            
+                <Link to={`/pokemon/${this.state.pokemonIndex}`} style={{textDecoration:'none',color:'white'}}>
                 <Card  id="card"bg="dark" variant="dark" className="text-center cartao"
                 style={{width:'18rem',margin: '1rem',borderRadius:'1rem'}}>
                     
                     <div className="corfundo" >
-                    <h5 className="pokemonIndex">#{this.state.pokemonIndex}</h5>
+                    <h5 className="pokemonIndex" id="card-title">#{this.state.pokemonIndex}</h5>
                 
                     <div style={{display:'flex', alignItems:'center'}}>
                         <Card.Img id="imagem-card"
@@ -79,6 +86,7 @@ export default class PokemonCard extends Component {
                     
                 </Card.Body>
                 </Card>
+                </Link>
             </div>
         )
     }

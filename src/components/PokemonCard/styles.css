@@ -24,6 +24,9 @@
     -ms-border-radius: 1rem;
     -o-border-radius: 1rem;
 }
+
+
+
 .card-button #card{
     transition:all 1s ease ;
     -webkit-transition:all 1s ease ;
