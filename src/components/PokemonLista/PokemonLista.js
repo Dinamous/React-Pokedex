@@ -9,7 +9,7 @@ export default class PokemonLista extends Component {
 
     state = {
        url:' https://pokeapi.co/api/v2/pokemon',
-       pokemon:null
+       pokemon:null,    
     }
 
     async componentDidMount(){
@@ -30,6 +30,7 @@ export default class PokemonLista extends Component {
                         url={pokemon.url}
                         />
                     ))}
+ 
                 </Row>)
             : (
                 <Row className="justify-content-sm-center">

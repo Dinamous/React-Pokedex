@@ -19,7 +19,16 @@ export default class PokemonCard extends Component {
         imagemCarregando:true,
         muitasRequisicoes:false,
         filtroCategoria:'',
+        dadosCarregados:false
     }
+
+    handleImageLoaded() {
+        this.setState({ imagemCarregando: false });
+      }
+    
+      handleImageErrored() {
+        this.setState({ imagemCarregando: true });
+      }
 
     async componentDidMount() {
         const { name, url } = this.props;
@@ -29,65 +38,89 @@ export default class PokemonCard extends Component {
         
         const response = await api.get(`pokemon/${pokemonIndex}`);
         this.setState({pokemonData: response.data});
-      
+
         this.setState({ name, imageURL, pokemonIndex});
-        
+        // this.setState({imagemCarregando:false})
+        // this.setState({dadosCarregados:true})
+
+        const img  = new Image();
+        img.src = imageURL;
+        img.onload =  () => {
+            // when it finishes loading, update the component state
+            this.setState({ imagemCarregando: false });
+          }
       }
 
 
     render() {       
 
-        return (
-            
-            <div className="card-button">
-            
-                <Link to={`/pokemon/${this.state.pokemonIndex}`} style={{textDecoration:'none',color:'white'}}>
-                <Card  id="card"bg="dark" variant="dark" className="text-center cartao"
-                style={{width:'18rem',margin: '1rem',borderRadius:'1rem'}}>
-                    
-                    <div className="corfundo" >
-                    <h5 className="pokemonIndex" id="card-title">#{this.state.pokemonIndex}</h5>
-                
-                    <div style={{display:'flex', alignItems:'center'}}>
-                        <Card.Img id="imagem-card"
-                        variant="top" 
-                        src={this.state.imageURL} 
-                        style={{maxWidth:'10rem',marginLeft:'25%'}}
-                        onload={()=> {this.setState({imagemCarregando:false})}}
-                        onError={()=> {this.setState({muitasRequisicoes:true})}}
-                        />
-                    </div>
-                    
-                    </div>
-                
-                <Card.Body>
-                    
-                    <Card.Title id="card-title">{
-                        this.state.name
-                        .toLowerCase()
-                        .split(' ')
-                        .map(s => s.charAt(0).toUpperCase() + s.substring(1))
-                        .join(' ')}
-                    </Card.Title>
-                    <Card.Text>
-                         {this.state.pokemonData ? (
-                            <Row className="justify-content-md-center"
-                            style={{display:'flex',justifyContent:'center'}}>
-                            {this.state.pokemonData.types.map(tipo => (
-                                <Categoria
-                                key={tipo.type.name}
-                                categoria={tipo.type.name}/>
-                                
-                            ))}
-                            </Row>
-                        ) : (<div><p>Carregando</p></div>)}
-                    
-                    </Card.Text>
-                    
-                </Card.Body>
-                </Card>
-                </Link>
-            </div>
+    const {imagemCarregando} = this.state;
+
+    if(imagemCarregando){
+        return(
+            <>
+            </>
         )
     }
+
+        return (
+            <div>
+               
+                    <div className="card-button"  >
+            
+                    <Link to={`/pokemon/${this.state.pokemonIndex}`} style={{textDecoration:'none',color:'white'}}>
+                    <Card  id="card"bg="dark" variant="dark" className="text-center cartao"
+                    style={{width:'18rem',margin: '1rem',borderRadius:'1rem'}}>
+                        
+                        <div className="corfundo" >
+                        <h5 className="pokemonIndex" id="card-title">#{this.state.pokemonIndex}</h5>
+                    
+                        <div style={{display:'flex', alignItems:'center'}}>
+                            <Card.Img id="imagem-card"
+                            variant="top" 
+                            src={this.state.imageURL} 
+                            style={{maxWidth:'10rem',marginLeft:'25%'}}
+                            onload={this.handleImageLoaded.bind(this)}
+                            onError={this.handleImageErrored.bind(this)}
+                            />
+                        </div>
+                        
+                        </div>
+                    
+                    <Card.Body>
+                        
+                        <Card.Title id="card-title">{
+                            this.state.name
+                            .toLowerCase()
+                            .split(' ')
+                            .map(s => s.charAt(0).toUpperCase() + s.substring(1))
+                            .join(' ')}
+                        </Card.Title>
+                        <Card.Text>
+                             {this.state.pokemonData ? (
+                                <Row className="justify-content-md-center"
+                                style={{display:'flex',justifyContent:'center'}}>
+                                {this.state.pokemonData.types.map(tipo => (
+                                    <Categoria
+                                    key={tipo.type.name}
+                                    categoria={tipo.type.name}/>
+                                    
+                                ))}
+                                </Row>
+                            ) : (<div><p>Carregando</p></div>)}
+                        
+                        </Card.Text>
+                        
+                    </Card.Body>
+                    </Card>
+                    </Link>
+              
+                </div>
+                
+
+        </div>        
+        )
+         
+    }
+
 }

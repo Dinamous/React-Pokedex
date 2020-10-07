@@ -8,15 +8,15 @@ export default class PokemonInfo extends Component {
         imageURL:''
     }
 
-    // async componentDidMount(){
-    //     // const {pokemonIndex} = this.props.match.params;
-    //     //this.setState({pokemonIndex})
-    // }
+    async componentDidMount(){
+        const {pokemonIndex} = this.props.match.params;
+        this.setState({pokemonIndex})
+    }
 
     render() {
         return (
             <div>
-                {/* {this.state.pokemonIndex} */}
+                {this.state.pokemonIndex}
                 hello
             </div>
         )

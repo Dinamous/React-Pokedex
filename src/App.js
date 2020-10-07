@@ -7,6 +7,7 @@ import PokemonInfo from './components/PokemonInfo/PokemonInfo'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Container from 'react-bootstrap/Container';
+import Filtro from './components/Layout/Filtro';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
       <Container>
         <Switch>
           <Route exact path="/" component={Dashboard}/>
-          <Route exact path="/tipo/:categoria" component={Dashboard}/>
+          <Route exact path="/tipo/:categoria" component={Filtro}/>
           <Route exact path="/pokemon/:pokemonIndex" component={PokemonInfo}/>
         </Switch>
       </Container>

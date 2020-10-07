@@ -23,7 +23,7 @@ export default class Menu extends Component {
     async componentDidMount(){
         const response = await api.get('type');
         this.setState({tipos: response.data['results']});
-        console.log(this.state.tipos)
+        //console.log(this.state.tipos)
     }
     render() {
         return (
@@ -48,7 +48,11 @@ export default class Menu extends Component {
                  {this.state.tipos ? (
                     this.state.tipos.map(tipo => (
                         <NavDropdown.Item >
-                            <Link  to={`/tipo/${tipo.name}`}>
+                            <Link  
+                            
+                            key={tipo.name}
+                            to={`/tipo/${tipo.name}`}
+                            style={{textDecoration:'none',color:'black'}}>
 
                             
                             {tipo.name
