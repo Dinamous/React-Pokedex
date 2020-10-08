@@ -1,68 +1,157 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!--
+*** Thanks for checking out this README Template. If you have a suggestion that would
+*** make this better, please fork the repo and create a pull request or simply open
+*** an issue with the tag "enhancement".
+*** Thanks again! Now go create something AMAZING! :D
+-->
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `yarn start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+    <!-- <img src="logo.png" alt="Logo" width="80" height="80"> -->
+  
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  <h3 align="center">React Pókedex</h3>
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+  <p align="center">
+    Uma listagem dos Pókemons
+    <a href="https://dinamous.github.io/React-Pokedex/#/">Live Demo</a>
+    ·
+    <a href="https://github.com/Dinamous/React-Pokedex/issues">Reportar Bug</a>
+    ·
+    <a href="https://github.com/Dinamous/React-Pokedexissues">Pedir Atualização</a>
+  </p>
+</p>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<!-- TABLE OF CONTENTS -->
+## Conteúdos
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [Conteúdos](#conteúdos)
+- [Sobre o projeto](#sobre-o-projeto)
+  - [Construido com:](#construido-com)
+- [Colocando a mão na massa](#colocando-a-mão-na-massa)
+  - [Prerequisitos](#prerequisitos)
+  - [Instalação](#instalação)
+- [Contribuindo](#contribuindo)
+- [License](#license)
+- [Contato](#contato)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+<!-- ABOUT THE PROJECT -->
+## Sobre o projeto
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+[![Product Name Screen Shot][product-screenshot]](https://dinamous.github.io/React-Pokedex/#/)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+Este projeto teve como finalidade, a construção de uma aplicação WEB que consumisse uma API.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+O React Pókedex, possibilita a listagem inicial dos primeiros 150 pókemons da primeira geração, como também filtrá-los quanto ao seu tipo,(pókemons podem possuir até dois tipos diferentes de elementos nesta geração), como também realiza uma busca específica por um pókemon.
+Além do mais ao selecionar um dos pókemons listados, uma breve informação de combate aparecerá.
 
-### Analyzing the Bundle Size
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+### Construido com:
 
-### Making a Progressive Web App
+* [React.js](https://pt-br.reactjs.org)
+* [React Bootstrap](https://react-bootstrap.netlify.app)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-### Advanced Configuration
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
-### Deployment
+<!-- GETTING STARTED -->
+## Colocando a mão na massa
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+Precisaremos fazer alguns passos antes que você possa consiguir ter sua versão deste projeto.
 
-### `yarn build` fails to minify
+Antes de tudo faça o download do repositório para sua máquina.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### Prerequisitos
+
+Para começarmos é preciso que você possua o node instalado em sua máquina, caso não tenha execute o comando abaixo.
+* npm
+```sh
+npm install npm@latest -g
+```
+
+### Instalação
+
+1. Clone o repositório
+```sh
+git clone https://github.com/Dinamous/React-Pokedex.git
+```
+3. Instale os pacotes do projeto
+```sh
+npm install
+```
+4. Rode o projeto localmente
+```sh
+npm run start
+```
+
+<!-- CONTRIBUTING -->
+## Contribuindo
+
+Contribuições são o que fazem a comunidade open source tão incrível. Um ótimo lugar para aprender, melhorar e superar limites.
+Por isso qualquer contribuição é bem vinda.
+
+1. Façaum fork do projeto
+2. Crie uma branch com sua contribuição (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Dê um push na branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
+
+
+
+<!-- LICENSE -->
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+
+
+<!-- CONTACT -->
+## Contato
+
+Matheus Augusto Simões - [@dinamous](https://www.linkedin.com/in/matheus-simões/) - matheusaugustosimoes@hotmail.com
+
+Meu perfil do Github: [github.com/Dinamous](https://github.com/Dinamous)
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/Dinamous/React-Pokedex.svg?style=flat-square
+[contributors-url]: https://github.com/Dinamous/React-Pokedex/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Dinamous/React-Pokedex.svg?style=flat-square
+[forks-url]: https://github.com/Dinamous/React-Pokedex/network/members
+[stars-shield]: https://img.shields.io/github/stars/Dinamous/React-Pokedex.svg?style=flat-square
+[stars-url]: https://github.com/Dinamous/React-Pokedex/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Dinamous/React-Pokedex.svg?style=flat-square
+[issues-url]: https://github.com/Dinamous/React-Pokedex/issues
+[license-shield]: https://img.shields.io/github/license/Dinamous/React-Pokedex.svg?style=flat-square
+[license-url]: https://github.com/Dinamous/React-Pokedex/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
+[linkedin-url]: https://www.linkedin.com/in/matheus-simões/
+[product-screenshot]: print1.png
