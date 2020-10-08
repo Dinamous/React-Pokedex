@@ -8,6 +8,7 @@ import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Container from 'react-bootstrap/Container';
 import Filtro from './components/Layout/Filtro';
+import PokemonBusca from './components/PokemonBusca/PokemonBusca';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route exact path="/" component={Dashboard}/>
           <Route exact path="/tipo/:categoria" component={Filtro}/>
           <Route exact path="/pokemon/:pokemonIndex" component={PokemonInfo}/>
+          <Route exact path="/buscar/:pokemonName" component={PokemonBusca}/>
         </Switch>
       </Container>
     </div>

@@ -1,0 +1,77 @@
+.pokemonIndex{
+    background-color: rgba(255, 255, 255, .05);
+    color: rgba(255, 255, 255, .3);
+    padding: .5rem 2rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    
+}
+
+.corfundo{
+        background-color: #24292E;
+        display: flex;
+        flex-direction: column;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+}
+
+.cartao2{
+
+    margin: 3rem;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+}
+
+
+
+.card-button #card{
+    transition:all 1s ease ;
+    -webkit-transition:all 1s ease ;
+    -moz-transition:all 1s ease ;
+    -ms-transition:all 1s ease ;
+    -o-transition:all 1s ease ;
+}
+
+
+.card-button #card:hover{
+    border: solid 1px #28A745;
+    cursor: pointer;
+    transition: .5s ease ;
+    -webkit-transition: .5s ease ;
+    -moz-transition: .5s ease ;
+    -ms-transition: .5s ease ;
+    -o-transition: .5s ease ;
+}
+.card-button #card #imagem-card,
+.card-button #card #card-title{
+    transition:all 1s ease;
+    -webkit-transition:all 1s ease;
+    -moz-transition:all 1s ease;
+    -ms-transition:all 1s ease;
+    -o-transition:all 1s ease;
+}
+.card-button #card:hover #imagem-card{
+    transform: scale(1.10);
+    -webkit-transform: scale(1.10);
+    -moz-transform: scale(1.10);
+    -ms-transform: scale(1.10);
+    -o-transform: scale(1.10);
+    transition: 1s ease;
+    -webkit-transition: 1s ease;
+    -moz-transition: 1s ease;
+    -ms-transition: 1s ease;
+    -o-transition: 1s ease;
+}
+
+
+.card-button #card:hover #card-title{
+    color:#28A745;
+    transition: .5s ease;
+    -webkit-transition: .5s ease;
+    -moz-transition: .5s ease;
+    -ms-transition: .5s ease;
+    -o-transition: .5s ease;
+}

@@ -16,7 +16,12 @@ import { LinkContainer } from "react-router-bootstrap";
 export default class Menu extends Component {
   state = {
     tipos: null,
+    pesquisa:''
   };
+
+  handleChange(event) {
+    this.setState({pesquisa:event.target.value})
+  }
 
   async componentDidMount() {
     const response = await api.get("type");
@@ -24,6 +29,8 @@ export default class Menu extends Component {
     //console.log(this.state.tipos)
   }
   render() {
+
+
     return (
       <Navbar bg="dark" variant="dark" expand="lg">
         <Navbar.Brand href="#home">
@@ -34,27 +41,21 @@ export default class Menu extends Component {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="#features">
-              <Link
-                to={`/RA`}
-                style={{ textDecoration: "none", color: "lightGray" }}
-              >
+            <Nav.Link href={`/RA`}>
                 RA
-              </Link>
             </Nav.Link>
-            <Nav.Link href="#features">
-              <Link
-                to={`/3D`}
-                style={{ textDecoration: "none", color: "lightGray" }}
-              >
+            <Nav.Link href={`/3D`}>
+              
                 3D
-              </Link>
+             
             </Nav.Link>
 
             <NavDropdown title="Filtrar por Categoria" id="basic-nav-dropdown">
               {this.state.tipos ? (
                 this.state.tipos.map((tipo) => (
-                  <LinkContainer to={`/tipo/${tipo.name}`}>
+                  <LinkContainer
+                  key={tipo.name}
+                  to={`/tipo/${tipo.name}`}>
                     <NavDropdown.Item>
                       {tipo.name
                         .toLowerCase()
@@ -76,10 +77,13 @@ export default class Menu extends Component {
               type="text"
               placeholder="Procurar Pókemon"
               className="mr-sm-2"
+              onChange={this.handleChange.bind(this)}
             />
-            <Button variant="outline-success" style={{ margin: " .5rem 0 " }}>
+            <LinkContainer to={`/buscar/${this.state.pesquisa}`}>
+            <Button variant="outline-success" type="submit" style={{ margin: " .5rem 0 " }}>
               Buscar
             </Button>
+            </LinkContainer>
           </Form>
         </Navbar.Collapse>
       </Navbar>

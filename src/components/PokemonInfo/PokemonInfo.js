@@ -18,7 +18,7 @@ export default class PokemonInfo extends Component {
 
 
   async componentDidMount() {
-    const { pokemonIndex } = this.props.match.params;
+    const { pokemonIndex} = this.props.match.params;
     this.setState({ pokemonIndex });
     const imageURL = `https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${pokemonIndex}.png?raw=true`;
         
