@@ -41,14 +41,14 @@ export default class Menu extends Component {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href={`/RA`}>
+            {/* <Nav.Link href={`/RA`}>
                 RA
             </Nav.Link>
             <Nav.Link href={`/3D`}>
               
                 3D
              
-            </Nav.Link>
+            </Nav.Link> */}
 
             <NavDropdown title="Filtrar por Categoria" id="basic-nav-dropdown">
               {this.state.tipos ? (

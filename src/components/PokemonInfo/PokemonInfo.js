@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 
 import Card from "react-bootstrap/Card";
+import ProgressBar from "react-bootstrap/ProgressBar";
 import Row from "react-bootstrap/Row";
 import api from "../../source/api";
 import Categoria from "../Categoria/Categoria";
 
 import loading from "../../25 (1).gif"
+import { Col, Container } from "react-bootstrap";
 // import './styles.css'
 export default class PokemonInfo extends Component {
   state = {
@@ -13,7 +15,13 @@ export default class PokemonInfo extends Component {
     pokemonIndex: "",
     imageURL: "",
     pokemonData:null,
-    imagemCarregando:true
+    imagemCarregando:true,
+    hp: '',
+    attack: '',
+    defense: '',
+    speed: '',
+    specialAttack: '',
+    specialDefense: ''
   };
 
 
@@ -33,10 +41,53 @@ export default class PokemonInfo extends Component {
             
             this.setState({ imagemCarregando: false });
           }
-  }
+
+    let { hp, attack, defense, speed, specialAttack, specialDefense } = '';
+    this.state.pokemonData.stats.map(stat => {
+      switch (stat.stat.name) {
+        case 'hp':
+          hp = stat['base_stat'];
+          break;
+        case 'attack':
+          attack = stat['base_stat'];
+          break;
+        case 'defense':
+          defense = stat['base_stat'];
+          break;
+        case 'speed':
+          speed = stat['base_stat'];
+          break;
+        case 'special-attack':
+          specialAttack = stat['base_stat'];
+          break;
+        case 'special-defense':
+          specialDefense = stat['base_stat'];
+          break;
+        default:
+          break;
+      }
+      return null
+  });
+
+  this.setState({ 
+    hp,
+    attack,
+    defense,
+    speed,
+    specialAttack,
+    specialDefense})
+}
 
   render() {
-    const {imagemCarregando,pokemonData} = this.state;
+    const {
+    imagemCarregando,
+    hp,
+    attack,
+    defense,
+    speed,
+    specialAttack,
+    specialDefense,
+    pokemonData} = this.state;
 
     if(imagemCarregando){
         return(
@@ -49,7 +100,8 @@ export default class PokemonInfo extends Component {
 
     return (
       <div>
-        <Row className="justify-content-sm-center">
+        <Row className="justify-content-sm-center"
+        style={{display:'flex',justifyContent:'center'}}>
           
             <div className="card-button">
               
@@ -59,7 +111,7 @@ export default class PokemonInfo extends Component {
                   variant="dark"
                   className="text-center cartao"
                   style={{
-                    width: "64rem",
+                    width: "80vw",
                     margin: "1rem",
                     borderRadius: "1rem",
                   }}
@@ -109,6 +161,61 @@ export default class PokemonInfo extends Component {
                   </Card.Body>
                 </Card>
               
+
+                <Card
+                  id="card-info"
+                  bg="dark"
+                  variant="dark"
+                  className="text-center cartao"
+                  style={{
+                    width: "80vw",
+                    margin: "1rem",
+                    borderRadius: "1rem",
+                    padding:'1rem'
+                  }}
+                >
+                  <Container className="justify-content-sm-center">
+                    <h2 style={{margin:'1rem',color:'#28A745'}}>Status do Pókemon</h2>
+                  <Row className="justify-content-sm-center"
+                  style={{display:'flex',justifyContent:'center',alignItems:'center',margin:'1rem 0'}}>
+                
+                     <Col style={{alignItems:'left'}} md="3" sm={4}> <h5>HP</h5></Col>
+                     <Col style={{alignItems:'right'}}   sm={8}><ProgressBar variant="danger" now={hp} label={`${hp}`} /></Col>
+                  </Row>
+                  <Row className="justify-content-sm-center"
+                  style={{display:'flex',justifyContent:'center',alignItems:'center',margin:'1rem 0'}}>
+                
+                     <Col style={{alignItems:'left'}} md="3" sm={4}> <h5>Ataque</h5></Col>
+                     <Col style={{alignItems:'right'}} sm={8}><ProgressBar  variant="success" now={attack} label={`${attack}`} /></Col>
+                  </Row>
+                  <Row className="justify-content-sm-center"
+                  style={{display:'flex',justifyContent:'center',alignItems:'center',margin:'1rem 0'}}>
+                
+                     <Col style={{alignItems:'left'}} md="3" sm={4}> <h5>Defesa</h5></Col>
+                     <Col style={{alignItems:'right'}} sm={8}><ProgressBar variant="success" now={defense} label={`${defense}`} /></Col>
+                  </Row>
+                  <Row className="justify-content-sm-center"
+                  style={{display:'flex',justifyContent:'center',alignItems:'center',margin:'1rem 0'}}>
+                
+                     <Col style={{alignItems:'left'}} md="3" sm={4}> <h5>Velocidade</h5></Col>
+                     <Col style={{alignItems:'right'}} sm={8}><ProgressBar  variant="warning" now={speed} label={`${speed}`} /></Col>
+                  </Row>
+                  <Row className="justify-content-sm-center"
+                  style={{display:'flex',justifyContent:'center',alignItems:'center',margin:'1rem 0'}}>
+                
+                     <Col style={{alignItems:'left'}} md="3" sm={4}> <h5>Ataque Especial</h5></Col>
+                     <Col style={{alignItems:'right'}} sm={8}><ProgressBar striped variant="success" now={specialAttack} label={`${specialAttack}`} /></Col>
+                  </Row>
+                  <Row className="justify-content-sm-center"
+                  style={{display:'flex',justifyContent:'center',alignItems:'center',margin:'1rem 0'}}>
+                
+                     <Col style={{alignItems:'left'}} md="3" sm={4}> <h5>Defesa Especial</h5></Col>
+                     <Col style={{alignItems:'right'}} sm={8}><ProgressBar striped variant="success" now={specialDefense} label={`${specialDefense}`} /></Col>
+                  </Row>
+                  
+                  </Container>
+                </Card>
+
             </div>
         
         </Row>
