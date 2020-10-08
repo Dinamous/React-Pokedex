@@ -64,7 +64,7 @@
 <!-- ABOUT THE PROJECT -->
 ## Sobre o projeto
 
-[![Product Name Screen Shot][product-screenshot][product-screenshot2]](https://dinamous.github.io/React-Pokedex/#/)
+[![Product Name Screen Shot][product-screenshot](https://dinamous.github.io/React-Pokedex/#/)
 
 
 Este projeto teve como finalidade, a construção de uma aplicação WEB que consumisse uma API.
