@@ -64,7 +64,7 @@
 <!-- ABOUT THE PROJECT -->
 ## Sobre o projeto
 
-[![Product Name Screen Shot][product-screenshot]](https://dinamous.github.io/React-Pokedex/#/)
+[![Product Name Screen Shot][product-screenshot][product-screenshot2]](https://dinamous.github.io/React-Pokedex/#/)
 
 
 Este projeto teve como finalidade, a construção de uma aplicação WEB que consumisse uma API.
@@ -77,6 +77,8 @@ Além do mais ao selecionar um dos pókemons listados, uma breve informação de
 
 * [React.js](https://pt-br.reactjs.org)
 * [React Bootstrap](https://react-bootstrap.netlify.app)
+* [Axios]()
+* [React Router]()
 
 
 
@@ -155,3 +157,4 @@ Meu perfil do Github: [github.com/Dinamous](https://github.com/Dinamous)
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/matheus-simões/
 [product-screenshot]: print1.png
+[product-screenshot2]: print2.png
