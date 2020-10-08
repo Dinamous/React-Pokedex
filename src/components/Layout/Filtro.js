@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { Row,Col } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
 import api from '../../source/api';
-import Categoria from '../Categoria/Categoria';
 import PokemonCard from '../PokemonCard/PokemonCard';
 import loading from '../../25 (1).gif'
 export default class Filtro extends Component {

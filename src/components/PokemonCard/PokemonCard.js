@@ -17,18 +17,8 @@ export default class PokemonCard extends Component {
         pokemonIndex:'',
         pokemonData:null,
         imagemCarregando:true,
-        muitasRequisicoes:false,
         filtroCategoria:'',
-        dadosCarregados:false
     }
-
-    handleImageLoaded() {
-        this.setState({ imagemCarregando: false });
-      }
-    
-      handleImageErrored() {
-        this.setState({ imagemCarregando: true });
-      }
 
     async componentDidMount() {
         const { name, url } = this.props;
@@ -40,13 +30,11 @@ export default class PokemonCard extends Component {
         this.setState({pokemonData: response.data});
 
         this.setState({ name, imageURL, pokemonIndex});
-        // this.setState({imagemCarregando:false})
-        // this.setState({dadosCarregados:true})
-
+        
         const img  = new Image();
         img.src = imageURL;
         img.onload =  () => {
-            // when it finishes loading, update the component state
+            
             this.setState({ imagemCarregando: false });
           }
       }
@@ -80,8 +68,7 @@ export default class PokemonCard extends Component {
                             variant="top" 
                             src={this.state.imageURL} 
                             style={{maxWidth:'10rem',marginLeft:'25%'}}
-                            onload={this.handleImageLoaded.bind(this)}
-                            onError={this.handleImageErrored.bind(this)}
+                            
                             />
                         </div>
                         
